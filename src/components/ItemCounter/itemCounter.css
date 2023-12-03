@@ -1,0 +1,21 @@
+.section-item-counter{ 
+    margin: 0.5rem;
+}
+.label-item-counter{ 
+    display: grid; 
+    grid-template-columns: 30% 40% 30%; 
+    margin: 1rem 0rem 0rem 0rem;
+}
+.btn-item-counter, .btn-add-cart{
+    background-color: rgb(23, 23, 42);
+    color: white; 
+    border-radius: 5px; 
+    font-size: 1.2rem;
+}
+.btn-add-cart{
+     width: 100%; 
+     margin-top: .5rem;
+}
+label{
+    text-align: center;
+}
