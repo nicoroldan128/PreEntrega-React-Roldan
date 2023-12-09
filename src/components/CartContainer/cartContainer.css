@@ -1,0 +1,19 @@
+.card-cart{
+    display: grid;
+    grid-template-columns: 40% 50%;
+    grid-template-rows: 150px;
+}
+
+.card-img-cart{
+    object-fit: contain;
+    width: 50%;
+    height: 50%;
+    justify-self: center;
+}
+
+
+.cart-list{
+    display: flex;
+    flex-direction: column;
+}
+

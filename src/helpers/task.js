@@ -50,5 +50,5 @@ export const task = (id) =>
   new Promise((res, rec) => {
     setTimeout(() => {
       res(id ? productos.find(productos => productos.id === id) : productos);
-    }, 1000);
+    }, 2000);
   });

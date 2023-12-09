@@ -4,8 +4,21 @@ import { task } from "../../helpers/task";
 import './ItemListContainer.css'
 import { useParams } from "react-router-dom";
 
+const Loading = () =>{
+  useEffect(()=>{
+    return () => {}
+  }
+
+  )
+
+  return (
+    <h2>Cargando ...</h2> 
+  )
+}
+
 const ItemListContainer = ({greeting}) => {
   const [productos, setProductos] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const {categoriaId} = useParams()
 
@@ -13,11 +26,13 @@ const ItemListContainer = ({greeting}) => {
     if(categoriaId){
       task()
       .then((result) => setProductos(result.filter(productos => productos.category === categoriaId)))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(()=> setLoading(false))
     }else{
       task()
       .then((result) => setProductos(result))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(()=> setLoading(false))
     }
   }, [categoriaId])
     
@@ -26,10 +41,12 @@ const ItemListContainer = ({greeting}) => {
   return (
     <div>
       <h2 className="text-center mt-3">{greeting}</h2>
-      <div className="items-container">
-        <ItemList productos={productos}/>
-      </div>
-      
+      {
+        loading ? <Loading />
+                : <div className="items-container">
+                   <ItemList productos={productos}/>
+                  </div>
+      } 
     </div>
   )
 }
