@@ -1,20 +1,9 @@
 import { useEffect, useState } from "react";
-import { ItemList } from "../ItemList/ItemList"
+import { ItemList } from "./ItemList/ItemList"
 import { task } from "../../helpers/task";
 import './ItemListContainer.css'
 import { useParams } from "react-router-dom";
-
-const Loading = () =>{
-  useEffect(()=>{
-    return () => {}
-  }
-
-  )
-
-  return (
-    <h2>Cargando ...</h2> 
-  )
-}
+import { Loading } from "../Loading/Loading";
 
 const ItemListContainer = ({greeting}) => {
   const [productos, setProductos] = useState([])
@@ -39,7 +28,7 @@ const ItemListContainer = ({greeting}) => {
     
 
   return (
-    <div>
+    <>
       <h2 className="text-center mt-3">{greeting}</h2>
       {
         loading ? <Loading />
@@ -47,7 +36,7 @@ const ItemListContainer = ({greeting}) => {
                    <ItemList productos={productos}/>
                   </div>
       } 
-    </div>
+    </>
   )
 }
 

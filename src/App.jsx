@@ -16,11 +16,11 @@ function App() {
         <div className='body-app'>
           <NavBar />
             <Routes>
-              <Route path='/' element={<ItemListContainer greeting= "Nuestros Productos"/>}/>
-              <Route path='/categoria/:categoriaId' element={<ItemListContainer greeting= "Categoria seleccionada"/>}/>
+              <Route path='/' element={<ItemListContainer greeting= 'Nuestros Productos'/>}/>
+              <Route path='/categoria/:categoriaId' element={<ItemListContainer greeting= 'Categoria seleccionada'/>}/>
               <Route path='/detalle/:pid' element={<ItemDetailContainer />}/>
               <Route path='/cart' element={<CartContainer />}/>
-              <Route path='*' element={<Navigate to= "/"/>}/>
+              <Route path='*' element={<Navigate to= '/'/>}/>
             </Routes>
         </div>
       </CartContextProvider>

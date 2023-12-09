@@ -7,10 +7,14 @@ export const CartContainer = () => {
     // realizar los detalles 
     <div className='cart-list'>
       <h1>Carrito de compras</h1>
-      {cartList.map(product => <div className='card-cart' key={product.id}>
+      {cartList.map(product =>
+                            <>
+                              <div className='card-cart' key={product.id}>
                                 <img className="card-img-cart" src={`../src/assets/img/${product.imgUrl}`} alt="imagen producto" /> 
                                 Cantidad: {product.cantidad} - Precio Unidad: {product.price} - subTotal: 
                               </div>  
+                              <button>X</button>
+                            </>
       )}
       <button className='btn btn-danger' onClick={vaciarCarrito}>Vaciar Carrito</button>
     </div>
