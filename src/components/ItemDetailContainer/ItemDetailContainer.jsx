@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { task } from "../../helpers/task";
+// import { task } from "../../helpers/task";
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail/ItemDetail';
 import { Loading } from '../Loading/Loading';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
 export const ItemDetailContainer = () => {
-  const [product, setProductos] = useState({})
+  const [product, setProducto] = useState({})
   const [loading, setLoading] = useState(true)
 
   const {pid} = useParams()
 
   useEffect(() => {
-    task(parseInt(pid))
-      .then((result) => setProductos(result))
-      .catch((err) => console.log(err))
-      .finally(()=> setLoading(false))
-  }, [])
+    const dbFirestore = getFirestore()
+
+    const queryDoc = doc(dbFirestore, 'productos', pid)
+    getDoc(queryDoc)
+    .then(resultado => setProducto( { id: resultado.id, ...resultado.data() } ))
+    .catch(error => console.log(error))
+    .finally(()=> setLoading(false))
+  },[])
 
   return (
     <>
