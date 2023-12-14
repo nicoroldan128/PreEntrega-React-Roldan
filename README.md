@@ -1,8 +1,14 @@
-# React + Vite
+#DRINK APP
+## Entrega Proyecto Final React Js - Comisión 49870
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+E-commerce de venta de bebidas alcoholicas
 
-Currently, two official plugins are available:
+DEMO: 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Plugin    | README
+| firebase 10.7.1 | Se utilizo como base de datos
+| react-router-dom | agregar enrutador para app
+| bootstrap 5.3.2 | Utilizado para dar algunos estilos
+
+
+**Realizado por Nicolás Roldán**

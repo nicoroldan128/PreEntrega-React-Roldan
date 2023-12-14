@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
-import './ItemList.css'
+import './itemList.css'
 import { Item } from '../Item/Item';
 
-export const ItemList = memo(({ productos }) => {
+export const ItemList = memo(({ products }) => {
 
     return (
       <>
-        {productos.map((product) => <Item key={product.id} product={product} />)}
+        {products.map((product) => <Item key={product.id} product={product} />)}
       </>
     )
 })

@@ -1,0 +1,36 @@
+.card-cart{
+    display: grid;
+    grid-template-columns: 20% 60% 10%;
+    grid-template-rows: 120px;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    min-width: 800px;
+    margin: 0.5rem auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 17px -7px;
+}
+
+p{
+    font-weight: 500;
+}
+
+.btn-eliminar-producto{
+    background-color: transparent;
+    border: none;
+    color: red;
+}
+
+.card-img-cart{
+    object-fit: contain;
+    width: 50%;
+    height: 50%;
+    justify-self: center;
+}
+
+.card-detail{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    gap: 2rem;
+}

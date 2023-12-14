@@ -1,19 +1,37 @@
-.card-cart{
-    display: grid;
-    grid-template-columns: 40% 50%;
-    grid-template-rows: 150px;
-}
-
-.card-img-cart{
-    object-fit: contain;
-    width: 50%;
-    height: 50%;
-    justify-self: center;
-}
-
-
 .cart-list{
     display: flex;
     flex-direction: column;
+}
+
+.titulo-carrito{
+    text-align: center;
+    margin: 2rem 0rem;
+}
+
+.msg-empty{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+.link-home{
+    text-decoration: none;
+}
+
+.text-total-compra{
+    text-align: end;
+    margin: 1rem 5rem;
+    font-size: 1.2rem;
+}
+
+.container-detalle{
+    display: flex;
+    align-self: flex-end;
+    margin: 2rem 5rem 5rem 0rem;
+}
+
+.btn-danger{
+    width: 150px;
+    height: 50px;
 }
 

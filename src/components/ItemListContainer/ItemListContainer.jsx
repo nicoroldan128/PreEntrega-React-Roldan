@@ -1,45 +1,51 @@
 import { useEffect, useState } from "react";
-import { ItemList } from "./ItemList/ItemList"
-// import { task } from "../../helpers/task";
-import './ItemListContainer.css'
 import { useParams } from "react-router-dom";
+import { ItemList } from "./ItemList/ItemList"
 import { Loading } from "../Loading/Loading";
 
-import { collection, getDocs, getFirestore, query } from 'firebase/firestore'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+
+import './itemListContainer.css'
+
 
 const ItemListContainer = ({greeting}) => {
-  const [productos, setProductos] = useState([])
+  const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const {categoriaId} = useParams()
+  const {categoryId} = useParams()
+
+  const getDocuments = (query) =>{
+    getDocs(query)
+    .then(result => setProducts(result.docs.map(product =>({id: product.id, ...product.data()}))))
+    .catch((err) => console.log(err))
+    .finally(()=> setLoading(false))
+  }
 
     useEffect(() => {
-    const dbFirestore = getFirestore()
-    const queryCollection = collection(dbFirestore, 'productos')
+      const dbFirestore = getFirestore()
+      const queryCollection = collection(dbFirestore, 'productos')
 
-    if(categoriaId){
-      const queryFilter = query(queryCollection, where('category','==',categoriaId))
+      if(categoryId){
+        const queryFilter = query(queryCollection, where('category', '==', categoryId))
+        getDocuments(queryFilter)
 
-      getDocs(queryFilter)
-      .then((result) => setProductos(result.docs.map(producto =>({id: producto.id, ...producto.data()}))))
-      .catch((err) => console.log(err))
-      .finally(()=> setLoading(false))
+      }else{
+        getDocuments(queryCollection)
+      }
 
-    }else{
-      getDocs(queryCollection)
-      .then(resultado => setProductos(resultado.docs.map(producto => ({id: producto.id, ...producto.data()}))))
-      .catch(error => console.log(error))
-      .finally(()=> setLoading(false))
-    }
-  }, [categoriaId])
+    }, [categoryId])
 
   return (
     <>
-      <h2 className="text-center mt-3">{greeting}</h2>
+      <h2 className="text-start mt-3 p-3">{greeting} {categoryId}</h2>
       {
         loading ? <Loading />
                 : <div className="items-container">
-                   <ItemList productos={productos}/>
+                  {products.length === 0 ? 
+                    <h2>No se encontraron productos</h2>
+                  :
+                    <ItemList products={products}/>
+                  }
                   </div>
       } 
     </>

@@ -1,5 +1,6 @@
 import { useEffect } from "react"
-
+import { Spinner } from "react-bootstrap"
+import "./loading.css"
 
 export const Loading = () =>{
     useEffect(()=>{
@@ -9,7 +10,11 @@ export const Loading = () =>{
     )
   
     return (
-      <h2>Cargando ...</h2> 
+      <div className="divPadre">
+        <div className="divHijo">
+          <Spinner color="dark" /> Cargando
+        </div>
+      </div>
     )
   }
   

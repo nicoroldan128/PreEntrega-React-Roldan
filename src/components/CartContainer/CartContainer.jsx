@@ -1,22 +1,42 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useCartContext } from '../../contexts/CartContext'
+
 import "./cartContainer.css"
-export const CartContainer = () => {
-  const {cartList, vaciarCarrito} = useCartContext()
+import { Formulario } from './Formulario/Formulario'
+import { ItemCart } from './ItemCart/ItemCart'
+
+export const CartContainer =  () => {
+  const {cartList, emptyCart, totalPurchase} = useCartContext()
+  const [isId, setIsId] = useState('')
 
   return (
-    // realizar los detalles 
     <div className='cart-list'>
-      <h1>Carrito de compras</h1>
-      {cartList.map(product =>
-                            <>
-                              <div className='card-cart' key={product.id}>
-                                <img className="card-img-cart" src={`../src/assets/img/${product.imgUrl}`} alt="imagen producto" /> 
-                                Cantidad: {product.cantidad} - Precio Unidad: {product.price} - subTotal: 
-                              </div>  
-                              <button>X</button>
-                            </>
-      )}
-      <button className='btn btn-danger' onClick={vaciarCarrito}>Vaciar Carrito</button>
+      <h1 className='titulo-carrito'>Carrito de compras</h1>
+        {
+          totalPurchase() === 0 ? 
+            <div className='msg-empty'>
+              <div>
+                <p>No hay productos en carrito</p>
+                <Link className='link-home' to={'/'}>Regresar a Home</Link>
+              </div>
+            </div>
+          :            
+            <>
+              {isId != '' && <h2>La orden de compra es {isId} </h2>}
+
+              {cartList.map(product =>
+                      <ItemCart  key={product.id} product={product}/>
+              )}
+              <div className='container-detalle'>
+                <p className='text-total-compra'>Precio total compra:  ${totalPurchase()}</p>
+                <button className='btn btn-danger ' onClick={emptyCart}>Vaciar Carrito</button>
+              </div>
+
+              <Formulario />
+              
+            </>
+        }
     </div>
   )
 }

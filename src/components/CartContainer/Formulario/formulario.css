@@ -1,0 +1,15 @@
+.form-style{
+    max-width: 800px;
+    align-self: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+h3{
+    margin-bottom: 2rem;
+}
+
+.btn-success{
+    margin-top: 2rem;
+    float: inline-end;
+}

@@ -1,4 +1,4 @@
-import './ItemDetail.css'
+import './itemDetail.css'
 
 import { ItemCounter } from '../../ItemCounter/ItemCounter'
 import { useCartContext } from '../../../contexts/CartContext'
@@ -25,10 +25,10 @@ export const ItemDetail = ({product}) => {
                     isCounter ?
                       <ItemCounter onAdd={onAdd} initial={1} stock={product.stock} />
                     :
-                    <>
-                      <Link to="/cart" >Terminar comprando</Link>
-                      <Link to="/" >Seguir comprando</Link>
-                    </>
+                    <div className='btn-continue'>
+                      <Link className='btn' to="/cart" >Terminar comprando</Link>
+                      <Link className='btn' to="/" >Seguir comprando</Link>
+                    </div>
                   }
                 </div>
       </div>

@@ -13,3 +13,8 @@
     height: 100%;
     justify-self: center;
 }
+
+.btn-continue{
+    display: flex;
+    gap: 1rem;
+}

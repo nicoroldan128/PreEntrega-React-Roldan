@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import { task } from "../../helpers/task";
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail/ItemDetail';
 import { Loading } from '../Loading/Loading';

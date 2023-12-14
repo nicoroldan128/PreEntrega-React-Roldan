@@ -2,8 +2,8 @@ import CartWidget from "../CartWidget/CartWidget"
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link, NavLink } from "react-router-dom";
-import './NavBar.css'
+import { NavLink } from "react-router-dom";
+import './navBar.css'
 
 
 const NavBar = () => {
@@ -24,18 +24,14 @@ const NavBar = () => {
               <NavLink className={({isActive})=> isActive ? "btn btn-dark" : "btn"} to={"categoria/ron"}>Ron</NavLink>
               <NavLink className={({isActive})=> isActive ? "btn btn-dark" : "btn"} to={"categoria/vodka"}>Vodka</NavLink>
               <NavLink className={({isActive})=> isActive ? "btn btn-dark" : "btn"} to={"categoria/whisky"}>Whisky</NavLink>
-              
             </Nav>
             <Nav>
               <Nav.Link href="/cart">
-                <NavLink className={({isActive})=> isActive ? "btn btn-dark" : "btn"} to={"/cart"}>
+                <NavLink className={({isActive})=> isActive ? "btn btn-secondary" : "btn"} to={"/cart"}>
                   <CartWidget />
                 </NavLink>
-                
               </Nav.Link>
             </Nav>
-            
-            
           </Navbar.Collapse>
         </Container>
       </Navbar>
